@@ -1,0 +1,20 @@
+---
+title: "Getting and cleaning data project"
+author: "Lorena Vilela"
+date: "26 September 2015"
+output: html_document
+---
+Average Measures per Activity per Subject
+
+```{r}
+measures <- read.table("../project/activity_measures.txt", header = TRUE)
+summary(measures)
+```
+
+Activity
+
+```{r}
+activity <- read.table("../project/activity.txt", header = TRUE)
+summary(activity)
+```
+
