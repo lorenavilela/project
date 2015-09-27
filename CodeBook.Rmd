@@ -18,27 +18,27 @@ List of steps performed to create the dataset above:
 
 Step 1- Collect data about Human Activity Recognition Using Smartphones available in  https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
 
-Step 2- Merging train and test data to create one data set.
+Step 2- Merging train and test data to create one data set.<br>
 Step 2.1 - Merge train data into variable dt_train.<br>
 Step 2.2 - Merge test data into variable dt_test.<br>
 Step 2.3  - Merge train and test data into variable dt and name all the columns from col1 to col563.<br>
 
-Step 3-Extracts only the measurements on the mean and standard deviation for each measurement. 
+Step 3-Extracts only the measurements on the mean and standard deviation for each measurement.<br>
 Step 3.1-Read the features lables and record into the variable dt_features.<br>
 Step 3.2-Record the subject, activity and the mean and std measurements into dt_std_mean.<br>
 
-Step 4-Uses descriptive activity names to name the activities in the data set.
+Step 4-Uses descriptive activity names to name the activities in the data set.<br>
 Step 4.1 Read the acitivity lables into the variable dt_activities and setup the column names as col1 and col2.<br>
 Step 4.2 Merge the activity labels to the dt_std_mean (data result from step 3.2).<br>
 
 Step 5-Appropriately labels the data set with descriptive variable names according to the order into the variable dt_std_mean (data result from step 4.2)
 
-Step 6-Create an independent tidy data set with the average of each feature - extracted according to step 3 - by activity and subject.
+Step 6-Create an independent tidy data set with the average of each feature - extracted according to step 3 - by activity and subject.<br>
 Step 6.1- Applying the principle of tidy data - Each variable forms a column and each observation forms a row.<br>
 Step 6.1.1- First melt the data because the features are columns instead of rows and they are a mixed of information.<br>
 Step 6.2- Calculate the average measure of the features by activity and subject.<br>
-Step 6.3- Adjust the column names in dt_result.<br>
-See dt_result sample:<br>
+Step 6.3- Adjust the column names.<br>
+See the tidy data sample:<br>
 ```{r}
 tidy_data_sample <- read.table("../project/tidy_data_head5.txt", header = TRUE)
 print(tidy_data_sample)
