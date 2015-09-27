@@ -104,8 +104,7 @@ summary(tidy_data)</code></pre>
 <p>Step 4-Uses descriptive activity names to name the activities in the data set.<br> Step 4.1 Read the acitivity lables into the variable dt_activities and setup the column names as col1 and col2.<br> Step 4.2 Merge the activity labels to the dt_std_mean (data result from step 3.2).<br></p>
 <p>Step 5-Appropriately labels the data set with descriptive variable names according to the order into the variable dt_std_mean (data result from step 4.2)</p>
 <p>Step 6-Create an independent tidy data set with the average of each feature - extracted according to step 3 - by activity and subject.<br> Step 6.1- Applying the principle of tidy data - Each variable forms a column and each observation forms a row.<br> Step 6.1.1- First melt the data because the features are columns instead of rows and they are a mixed of information.<br> Step 6.2- Calculate the average measure of the features by activity and subject.<br> Step 6.3- Adjust the column names.<br> See the tidy data sample:<br></p>
-<pre class="r"><code>tidy_data_sample &lt;- read.table(&quot;../project/tidy_data_head5.txt&quot;, header = TRUE)
-print(tidy_data_sample)</code></pre>
+<pre class="r"><code>print(head(tidy_data, 5))</code></pre>
 <pre><code>##   subject_id activity       measurement measurement_value
 ## 1          1   LAYING tBodyAcc-mean()-X        0.22159824
 ## 2          1   LAYING tBodyAcc-mean()-Y       -0.04051395

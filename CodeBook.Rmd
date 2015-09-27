@@ -40,8 +40,7 @@ Step 6.2- Calculate the average measure of the features by activity and subject.
 Step 6.3- Adjust the column names.<br>
 See the tidy data sample:<br>
 ```{r}
-tidy_data_sample <- read.table("../project/tidy_data_head5.txt", header = TRUE)
-print(tidy_data_sample)
+print(head(tidy_data, 5))
 ```
 
 
