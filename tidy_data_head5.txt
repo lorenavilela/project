@@ -1,6 +1,0 @@
-"subject_id" "activity" "measurement" "measurement_value"
-1 "LAYING" "tBodyAcc-mean()-X" 0.22159824394
-1 "LAYING" "tBodyAcc-mean()-Y" -0.0405139534294
-1 "LAYING" "tBodyAcc-mean()-Z" -0.11320355358
-1 "LAYING" "tBodyAcc-std()-X" -0.9280564692
-1 "LAYING" "tBodyAcc-std()-Y" -0.83682740562
