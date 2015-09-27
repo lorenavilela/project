@@ -77,34 +77,41 @@ img {
 </tr>
 </tbody>
 </table>
-<p><br>Tidy dataset results from the script run_analysis.R:</p>
-<p>Average Measures per Activity per Subject</p>
-<pre class="r"><code>measures &lt;- read.table(&quot;../project/activity_measures.txt&quot;, header = TRUE)
-summary(measures)</code></pre>
-<pre><code>##     subject      activity_id   avg_feature      
-##  Min.   : 1.0   Min.   :1.0   Min.   :-0.65028  
-##  1st Qu.: 8.0   1st Qu.:2.0   1st Qu.:-0.63667  
-##  Median :15.5   Median :3.5   Median :-0.53877  
-##  Mean   :15.5   Mean   :3.5   Mean   :-0.49149  
-##  3rd Qu.:23.0   3rd Qu.:5.0   3rd Qu.:-0.35186  
-##  Max.   :30.0   Max.   :6.0   Max.   :-0.04187</code></pre>
-<p>Activity</p>
-<pre class="r"><code>activity &lt;- read.table(&quot;../project/activity.txt&quot;, header = TRUE)
-summary(activity)</code></pre>
-<pre><code>##   activity_id                 activity
-##  Min.   :1.00   LAYING            :1  
-##  1st Qu.:2.25   SITTING           :1  
-##  Median :3.50   STANDING          :1  
-##  Mean   :3.50   WALKING           :1  
-##  3rd Qu.:4.75   WALKING_DOWNSTAIRS:1  
-##  Max.   :6.00   WALKING_UPSTAIRS  :1</code></pre>
-<p>List of steps performed to create the dataset as above.</p>
-<p>Step 1- Collect data about Human Activity Recognition Using Smartphones Dataset available in <a href="https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip">https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip</a></p>
-<p>Step 2- Merging train and test data to create one data set. Step 2.1 - Merge train data into variable dt_train Step 2.2 - Merge test data into variable dt_test Step 2.3 - Merge train and test data into variable dt and name all the columns from col1 to col563</p>
-<p>Step 3-Extracts only the measurements on the mean and standard deviation for each measurement. <br>Step 3.1-Read the features lables into the variable dt_features <br>Step 3.2-Search only the mean and std features positions <br>Step 3.3-Record only the mean and std features into dt_std_mean</p>
-<p>Step 4-Uses descriptive activity names to name the activities in the data set <br>Step 4.1 Read the acitivity lables into the variable dt_activities and setup the column names as col1 and col2 <br>Step 4.2 Merge the activity labels to the train and test data into dt</p>
-<p>Step 5-Appropriately labels the data set with descriptive variable names according to the order into the variable dt - first activity id, features names, subject and activity label</p>
-<p>Step 6-Creates a second, independent tidy data set with the average ##of each variable for each activity and each subject. <br>Step 6.1- Applying the principle of tidy data- Each variable forms a column and each observation forms a row. <br>Step 6.1.1- First melt data because the features are columns instead of rows and they are a mixed of variables. <br>Step 6.2- Calculate the average measure by activity and subject <br>Step 6.3 - Applying the 3rd principle of tidy data - Each type of observational unit forms a table <br>Step 6.3.1 - Create the Activity table and the Average measures by activities and subject table - see the dataset in the begining of this document.</p>
+<p>Tidy dataset results from the script run_analysis.R:</p>
+<p>Average Measures of features by Activity and Subject</p>
+<pre class="r"><code>tidy_data &lt;- read.table(&quot;../project/tidy_data.txt&quot;, header = TRUE)
+summary(tidy_data)</code></pre>
+<pre><code>##    subject_id                 activity   
+##  Min.   : 1.0   LAYING            :2580  
+##  1st Qu.: 8.0   SITTING           :2580  
+##  Median :15.5   STANDING          :2580  
+##  Mean   :15.5   WALKING           :2580  
+##  3rd Qu.:23.0   WALKING_DOWNSTAIRS:2580  
+##  Max.   :30.0   WALKING_UPSTAIRS  :2580  
+##                                          
+##                                measurement    measurement_value 
+##  angle(tBodyAccJerkMean),gravityMean):  180   Min.   :-0.99767  
+##  angle(tBodyAccMean,gravity)         :  180   1st Qu.:-0.94485  
+##  angle(tBodyGyroJerkMean,gravityMean):  180   Median :-0.29465  
+##  angle(tBodyGyroMean,gravityMean)    :  180   Mean   :-0.38429  
+##  angle(X,gravityMean)                :  180   3rd Qu.:-0.01599  
+##  angle(Y,gravityMean)                :  180   Max.   : 0.97451  
+##  (Other)                             :14400</code></pre>
+<p>List of steps performed to create the dataset above:</p>
+<p>Step 1- Collect data about Human Activity Recognition Using Smartphones available in <a href="https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip">https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip</a></p>
+<p>Step 2- Merging train and test data to create one data set. Step 2.1 - Merge train data into variable dt_train.<br> Step 2.2 - Merge test data into variable dt_test.<br> Step 2.3 - Merge train and test data into variable dt and name all the columns from col1 to col563.<br></p>
+<p>Step 3-Extracts only the measurements on the mean and standard deviation for each measurement. Step 3.1-Read the features lables and record into the variable dt_features.<br> Step 3.2-Record the subject, activity and the mean and std measurements into dt_std_mean.<br></p>
+<p>Step 4-Uses descriptive activity names to name the activities in the data set. Step 4.1 Read the acitivity lables into the variable dt_activities and setup the column names as col1 and col2.<br> Step 4.2 Merge the activity labels to the dt_std_mean (data result from step 3.2).<br></p>
+<p>Step 5-Appropriately labels the data set with descriptive variable names according to the order into the variable dt_std_mean (data result from step 4.2)</p>
+<p>Step 6-Create an independent tidy data set with the average of each feature - extracted according to step 3 - by activity and subject. Step 6.1- Applying the principle of tidy data - Each variable forms a column and each observation forms a row.<br> Step 6.1.1- First melt the data because the features are columns instead of rows and they are a mixed of information.<br> Step 6.2- Calculate the average measure of the features by activity and subject.<br> Step 6.3- Adjust the column names in dt_result.<br> See dt_result sample:<br></p>
+<pre class="r"><code>tidy_data_sample &lt;- read.table(&quot;../project/tidy_data_head5.txt&quot;, header = TRUE)
+print(tidy_data_sample)</code></pre>
+<pre><code>##   subject_id activity       measurement measurement_value
+## 1          1   LAYING tBodyAcc-mean()-X        0.22159824
+## 2          1   LAYING tBodyAcc-mean()-Y       -0.04051395
+## 3          1   LAYING tBodyAcc-mean()-Z       -0.11320355
+## 4          1   LAYING  tBodyAcc-std()-X       -0.92805647
+## 5          1   LAYING  tBodyAcc-std()-Y       -0.83682741</code></pre>
 
 
 </div>
